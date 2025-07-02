@@ -17,6 +17,7 @@ class LibrofyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp.router(
+          theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.router,
         );
