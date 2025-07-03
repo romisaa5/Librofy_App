@@ -1,5 +1,7 @@
+import 'package:bookly_app/Features/home/presentation/data/cubit/book_cubit.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -16,10 +18,13 @@ class LibrofyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
-          debugShowCheckedModeBanner: false,
-          routerConfig: AppRouter.router,
+        return BlocProvider(
+          create: (context) => BookCubit(),
+          child: MaterialApp.router(
+            theme: ThemeData().copyWith(scaffoldBackgroundColor: Colors.white),
+            debugShowCheckedModeBanner: false,
+            routerConfig: AppRouter.router,
+          ),
         );
       },
     );
