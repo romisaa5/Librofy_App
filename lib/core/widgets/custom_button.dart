@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
         height: 45.h,
         decoration: BoxDecoration(
           border: isborder ? Border.all(color: AppColors.kprimaryColor) : null,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(16.r),
           color: color,
         ),
         child: Row(
@@ -45,8 +45,9 @@ class CustomButton extends StatelessWidget {
             ],
             Text(
               text,
-              style: Styles.textStyle16.copyWith(
+              style: Styles.textStyle14.copyWith(
                 color: textcolor ?? Colors.white,
+                fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
             ),
