@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_modl.dart';
 import 'package:bookly_app/Features/home/presentation/data/cubit/book_cubit.dart';
 import 'package:bookly_app/Features/home/presentation/widgets/book_card.dart';
 import 'package:bookly_app/Features/home/presentation/widgets/book_category_section.dart';
@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final books = BookModel.bookList;
+    final books = [];
 
     return Scaffold(
       body: KeyboardListener(

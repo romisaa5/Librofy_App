@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_modl.dart';
 import 'package:bookly_app/Features/home/presentation/widgets/book_card_item.dart';
 import 'package:bookly_app/core/utils/text_styles.dart';
 
@@ -11,15 +11,7 @@ class SimilarBooks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<BookModel> similarBooks =
-        BookModel.bookList
-            .where(
-              (movie) =>
-                  movie.genre == currentBook.genre &&
-                  movie.title != currentBook.title,
-            )
-            .take(4)
-            .toList();
+    final List<BookModel> similarBooks = [];
     final double gridHeight = similarBooks.length <= 2 ? 275.h : 550.h;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

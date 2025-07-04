@@ -22,6 +22,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       GoRouter.of(context).push(AppRouter.onboardingView1);
     });
   }
+
   void initSliddingAnimation() {
     animationController = AnimationController(
       vsync: this,
@@ -35,6 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
     animationController.forward();
   }
+
   @override
   void initState() {
     initSliddingAnimation();

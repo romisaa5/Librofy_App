@@ -7,7 +7,8 @@ class SmallContainerDetails extends StatelessWidget {
   const SmallContainerDetails({
     super.key,
     required this.value,
-    required this.icon, required this.color,
+    required this.icon,
+    required this.color,
   });
   final num value;
   final IconData icon;

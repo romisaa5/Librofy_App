@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/widgets/similar_books.dart';
 import 'package:bookly_app/Features/home/presentation/widgets/small_container_details.dart';
 import 'package:bookly_app/Features/home/presentation/widgets/summary_section.dart';
@@ -31,7 +31,8 @@ class DetailsView extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12.r),
                   child: Image.asset(
-                    book.image,
+                    book.volumeInfo?.imageLinks?.thumbnail ??
+                        'assets/images/book.jpg',
                     width: double.infinity,
                     height: 300,
                     fit: BoxFit.cover,
@@ -41,7 +42,7 @@ class DetailsView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  book.title,
+                  book.volumeInfo!.title!,
                   style: Styles.textStyle26.copyWith(color: Colors.black),
                   textAlign: TextAlign.center,
                 ),
@@ -86,8 +87,8 @@ class DetailsView extends StatelessWidget {
                 ],
               ),
 
-              SimilarBooks(currentBook: book),
-              SummarySection(summary: book.summary),
+              SimilarBooks(currentBook:  book),
+              SummarySection(summary: book.volumeInfo!.authors.toString()),
               SizedBox(height: 20),
             ],
           ),

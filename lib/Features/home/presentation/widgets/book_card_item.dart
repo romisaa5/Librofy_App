@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_modl.dart';
 import 'package:bookly_app/core/utils/app_colors.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,6 @@ class BookCardItem extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
-    final double ratingFontSize = isSmall ? 10 : 12;
     final double starSize = isSmall ? 12 : 14;
     final double radius = isSmall ? 12 : 20;
     final double width = isSmall ? 120 : 250;
@@ -35,7 +34,7 @@ class BookCardItem extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(radius),
               child: Image.asset(
-                book.image,
+                book.volumeInfo!.imageLinks?.thumbnail ?? '',
                 fit: BoxFit.cover,
                 width: width,
                 height: height,
@@ -50,18 +49,10 @@ class BookCardItem extends StatelessWidget {
                   color: AppColors.kprimaryColor.withValues(alpha: .8),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Row(
-                  children: [
-                    Text(
-                      book.rating.toString(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: ratingFontSize,
-                      ),
-                    ),
-                    SizedBox(width: 3),
-                    Icon(Icons.star, color: Colors.amberAccent, size: starSize),
-                  ],
+                child: Icon(
+                  Icons.star,
+                  color: Colors.amberAccent,
+                  size: starSize,
                 ),
               ),
             ),

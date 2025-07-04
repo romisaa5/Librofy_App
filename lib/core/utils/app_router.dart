@@ -1,5 +1,5 @@
 import 'package:bookly_app/Features/auth/login/presentation/views/login_view.dart';
-import 'package:bookly_app/Features/home/data/models/book_model.dart';
+import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/details_view.dart';
 import 'package:bookly_app/Features/navBar/presentation/views/bottom_nav_bar.dart';
 import 'package:bookly_app/Features/onboarding/presentation/views/first_onboarding_view.dart';
