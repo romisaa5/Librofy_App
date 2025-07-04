@@ -15,92 +15,82 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Image.asset(
-                  book.image,
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  fit: BoxFit.cover,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            spacing: 10.h,
+            children: [
+              SizedBox(height: 20.h),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  color: Colors.white,
                 ),
-                Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.6,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Colors.black.withValues(alpha: .3),
-                        Colors.black.withValues(alpha: .5),
-                      ],
-                    ),
+                height: 300.h,
+                width: 220.w,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12.r),
+                  child: Image.asset(
+                    book.image,
+                    width: double.infinity,
+                    height: 300,
+                    fit: BoxFit.cover,
                   ),
                 ),
-
-                Positioned(
-                  bottom: 20,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        book.title,
-                        style: Styles.textStyle32,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  book.title,
+                  style: Styles.textStyle26.copyWith(color: Colors.black),
+                  textAlign: TextAlign.center,
                 ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 10.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 15.w,
                 children: [
                   CustomButton(
                     textcolor: Colors.white,
                     isborder: false,
-                    text: 'Watch',
+                    text: 'Free Preview',
                     color: AppColors.kprimaryColor,
-                    width: double.infinity,
+                    width: MediaQuery.of(context).size.width * .4,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    spacing: 20.w,
-                    children: [
-                      for (var item in [
-                        {
-                          'value': 15,
-                          'icon': Icons.favorite,
-                          'color': Colors.red,
-                        },
-                        {
-                          'value': 7.6,
-                          'icon': Icons.star,
-                          'color': Colors.amberAccent,
-                        },
-                      ])
-                        SmallContainerDetails(
-                          color: item['color'] as Color,
-                          value: item['value'] as num,
-                          icon: item['icon'] as IconData,
-                        ),
-                    ],
+                  CustomButton(
+                    textcolor: Colors.white,
+                    isborder: false,
+                    text: 'Google Play',
+                    color: AppColors.kprimaryColor,
+                    width: MediaQuery.of(context).size.width * .4,
                   ),
-
-                  SimilarBooks(currentBook: book),
-                  SummarySection(summary: book.summary),
-                  SizedBox(height: 20),
                 ],
               ),
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 20.w,
+                children: [
+                  for (var item in [
+                    {'value': 15, 'icon': Icons.favorite, 'color': Colors.red},
+                    {
+                      'value': 7.6,
+                      'icon': Icons.star,
+                      'color': Colors.amberAccent,
+                    },
+                  ])
+                    SmallContainerDetails(
+                      color: item['color'] as Color,
+                      value: item['value'] as num,
+                      icon: item['icon'] as IconData,
+                    ),
+                ],
+              ),
+
+              SimilarBooks(currentBook: book),
+              SummarySection(summary: book.summary),
+              SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
